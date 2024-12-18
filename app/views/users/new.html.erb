@@ -1,17 +1,27 @@
 
 
-<%= form_tag("/users", method: "post")  do %>
-    <%= label('user', "Username:") %>
-    <%= text_field(:user, :username) %><br> 
-    <%= label('user', "E-mail:") %>
-    <%= email_field(:user, :email) %><br>
-    <%= label('user', "Password:") %>
-    <%= password_field_tag("user[password]") %><br>
-    <%= submit_tag("Submit") %>
+<%= form_with model: @user do |form| %>
+    <%= form.label "Username" %>
+    <%= form.text_field :username, value: 'Username' %><br>
+    <%= form.label "E-mail" %>
+    <%= form.email_field :email, value: 'your-email@example.com' %><br>
+    <%= form.label "Password" %>
+    <%= form.password_field :password, value: 'Password'%><br>
+    <%= form.submit %>
 <% end %>
 
+<%#= form_tag("/users", method: "post")  do %>
+    <%#= label('user', "Username:") %>
+    <%#= text_field(:user, :username)<br>  %>
+    <%#= label('user', "E-mail:") %>
+    <%#= email_field(:user, :email)<br> %>
+    <%#= label('user', "Password:") %>
+    <%#= password_field_tag("user[password]")<br> %>
+    <%#= submit_tag("Submit") %>
+<%# end %>
+
 <%# <form accept-charset="UTF-8 ]" action="/users" method="post"> %>
-   <%#=  <input type="hidden" name="authenticity_token" value="<%#= form_authenticity_token%>" >
+   <%#=  <input type="hidden" name="authenticity_token" value="= form_authenticity_token" >
         <%# <label for="username">Username:</label><br> %>
         <%# <input type="text" id="username" name="user[username]"><br> %>
         <%# <label for="email">E-mail:</label><br> %>
